@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 20% 97%;
+    --foreground: 220 15% 10%;
+    --primary: 5 40% 20%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 40 20% 94%;
+    --secondary-foreground: 220 15% 20%;
+    --muted: 40 15% 93%;
+    --muted-foreground: 220 10% 46%;
+    --accent: 5 38% 22%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 13% 88%;
+    --input: 220 13% 88%;
+    --ring: 5 40% 20%;
+    --radius: 0.5rem;
+    --font-inter: 'Inter', sans-serif;
+    --brand: 5 40% 20%;
+    --brand-light: 47 100% 81%;
+    --brand-mid: 5 35% 35%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    background-color: #000000;
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(4.25rem + env(safe-area-inset-top, 0px));
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-[#000000] text-white font-inter antialiased;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    padding-left: env(safe-area-inset-left, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
+  }
+  #root {
+    min-height: 100%;
+    background-color: #000000;
+  }
+  ::selection {
+    background-color: rgba(201, 162, 39, 0.35);
+    color: #fff;
+  }
+}
+
+@layer utilities {
+  /* Gradient text using the brand gold palette */
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #F5D67B 0%, #D4AF37 35%, #C9A227 70%, #8E6E12 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* Subtle grid background pattern */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  /* Radial fade mask – useful for backgrounds that should fade at the edges */
+  .mask-radial-fade {
+    -webkit-mask-image: radial-gradient(ellipse at center, black 35%, transparent 75%);
+    mask-image: radial-gradient(ellipse at center, black 35%, transparent 75%);
+  }
+
+  /* Decorative orbs */
+  .gold-orb {
+    background: radial-gradient(circle at center, rgba(212, 175, 55, 0.35) 0%, rgba(201, 162, 39, 0.12) 35%, transparent 70%);
+    filter: blur(60px);
+  }
+
+  /* Glass card */
+  .glass {
+    background: rgba(20, 20, 20, 0.55);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  /* Gradient border via mask */
+  .gold-ring {
+    position: relative;
+  }
+  .gold-ring::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.55), rgba(201, 162, 39, 0.05) 35%, rgba(255, 255, 255, 0.02) 70%, rgba(212, 175, 55, 0.4));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* Marquee animation for trust strip */
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .animate-marquee {
+    animation: marquee 28s linear infinite;
+  }
+
+  /* Slow pulse for glow accents */
+  @keyframes pulseGlow {
+    0%, 100% { opacity: 0.45; transform: scale(1); }
+    50% { opacity: 0.75; transform: scale(1.08); }
+  }
+  .animate-pulse-glow {
+    animation: pulseGlow 6s ease-in-out infinite;
+  }
+
+  .pt-nav-safe {
+    padding-top: calc(5.25rem + env(safe-area-inset-top, 0px));
+  }
+
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  /* WhatsApp section — phone mockup frame */
+  .phone-mockup {
+    --phone-bezel: 9px;
+    --phone-radius: 2.35rem;
+    --phone-width: min(100%, 260px);
+    width: var(--phone-width);
+    max-width: 260px;
+    margin-inline: auto;
+    padding: var(--phone-bezel);
+    border-radius: var(--phone-radius);
+    background: linear-gradient(160deg, #4a4a4f 0%, #2a2a2e 40%, #121214 100%);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow:
+      0 0 0 1px rgba(0, 0, 0, 0.85),
+      0 20px 50px -16px rgba(0, 0, 0, 0.75),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .phone-mockup__screen {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    aspect-ratio: 9 / 19.5;
+    max-height: min(72svh, 580px);
+    border-radius: 1.65rem;
+    overflow: hidden;
+    background: #000;
+    border: 1px solid rgba(0, 0, 0, 0.6);
+  }
+
+  .phone-mockup__chat {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .phone-mockup__chat-flow {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.12rem;
+    padding: 0.35rem 0.45rem;
+  }
+
+  .phone-mockup__chat::-webkit-scrollbar {
+    display: none;
+  }
+
+  .phone-mockup__status {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 28px;
+    padding: 0.4rem 1.1rem 0.15rem;
+    background: #0b141a;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  .phone-mockup__notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 88px;
+    height: 22px;
+    background: #000;
+    border-radius: 0 0 1rem 1rem;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  .phone-mockup__home {
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0b141a;
+  }
+
+  .phone-mockup__home-bar {
+    width: 96px;
+    height: 4px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.35);
+  }
+
+  @media (max-width: 639px) {
+    .gold-orb {
+      filter: blur(40px);
+      opacity: 0.65;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    .animate-pulse-glow,
+    .animate-marquee {
+      animation: none;
+    }
+  }
+}
