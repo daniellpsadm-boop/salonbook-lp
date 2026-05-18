@@ -41,7 +41,7 @@ const appScreens = [
 ];
 import { motion, useReducedMotion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { appLink } from './src/app-links.js';
+import { appLink, SALONBOOK_CTA_URL } from './src/app-links.js';
 
 function SectionLabel({ icon: Icon, children }) {
   return (
@@ -732,7 +732,7 @@ export default function LandingPage() {
                     </div>
                   ))}
                 </div>
-                <a href="https://turbosaas.pro/" target="_blank" rel="noopener noreferrer" className="block">
+                <a href={SALONBOOK_CTA_URL} target="_blank" rel="noopener noreferrer" className="block">
                   <Button
                     className={`w-full h-11 border-0 font-semibold ${
                       p.highlight

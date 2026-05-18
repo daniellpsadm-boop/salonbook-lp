@@ -8,7 +8,7 @@ O app principal (login, demo, dashboard) continua no outro projeto Vercel na rai
 
 | Variável | Obrigatória | Descrição |
 |----------|-------------|-----------|
-| `VITE_APP_URL` | Sim (produção) | URL do app principal, sem barra no final. Ex.: `https://app.barbflow.com.br` |
+| `VITE_APP_URL` | Sim (produção) | URL do app principal, sem barra no final. Ex.: `https://app.salonbook.com.br` |
 
 Os botões "Ver Demo" apontam para `{VITE_APP_URL}/demo/dashboard`.
 
@@ -32,7 +32,7 @@ No projeto **barbflow-landing**:
    - `www.barbflow.com.br`
 3. Configure DNS no registrador conforme a Vercel indicar (A/CNAME).
 
-No projeto do **app principal**, use outro host (ex.: `app.barbflow.com.br`) para não conflitar.
+No projeto do **app principal**, use outro host (ex.: `app.salonbook.com.br`) para não conflitar.
 
 ## Desenvolvimento local
 
