@@ -700,7 +700,7 @@ export default function LandingPage() {
           >
             {[
               { name: 'Starter', price: 'R$89,00', per: '/mês', desc: 'Para salões e barbearias que estão começando', features: ['Até 2 profissionais', 'Agenda online', 'Gestão de clientes', 'Agendamento automático pelo WhatsApp — 24h, 7 dias por semana', 'Controle financeiro completo da barbearia'] },
-              { name: 'Pro', price: 'R$197', per: '/mês', desc: 'Para salões e barbearias em crescimento', features: ['Até 8 profissionais', 'Tudo do Starter', 'IA agenda automaticamente pelo WhatsApp', 'AI Growth Engine', 'Relatórios avançados', 'Suporte prioritário'], highlight: true },
+              { name: 'Pro', price: 'R$189,00', per: '/mês', desc: 'Para salões e barbearias em crescimento', features: ['Até 8 profissionais', 'Agenda online', 'Gestão de clientes', 'Agendamento automático pelo WhatsApp — 24h, 7 dias por semana', 'Controle financeiro completo da barbearia'], highlight: true },
               { name: 'Enterprise', price: 'R$397', per: '/mês', desc: 'Para redes, salões premium e barbearias', features: ['Profissionais ilimitados', 'Tudo do Pro', 'White-label total', 'Multi-unidade', 'Onboarding dedicado'] },
             ].map((p) => (
               <motion.div
