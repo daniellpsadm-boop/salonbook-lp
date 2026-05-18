@@ -92,6 +92,7 @@ export default function LandingPage() {
     { href: '#app', label: 'O App' },
     { href: '#como-funciona', label: 'Como Funciona' },
     { href: '#agendamento-whatsapp', label: 'Agendamento' },
+    { href: '#ai-growth', label: 'AI Growth' },
     { href: '#planos', label: 'Planos' },
   ];
 
@@ -605,35 +606,39 @@ export default function LandingPage() {
       </section>
 
       {/* AI Growth */}
-      <section className="relative pt-4 sm:pt-6 pb-10 sm:pb-16 px-4 sm:px-6 bg-neutral-950 overflow-hidden">
+      <section id="ai-growth" className="relative pt-4 sm:pt-6 pb-10 sm:pb-16 px-4 sm:px-6 bg-neutral-950 overflow-hidden">
         <div className="absolute inset-0 -z-0 pointer-events-none">
           <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] gold-orb opacity-20" />
         </div>
-        <div className="relative max-w-7xl mx-auto grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 items-center">
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
-          >
-            <motion.div variants={fadeUp} className="mb-5 sm:mb-6 inline-flex">
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+          className="relative max-w-7xl mx-auto grid md:grid-cols-[1fr_220px] md:gap-x-8 lg:gap-x-10 gap-y-8 items-center"
+        >
+          <motion.div variants={fadeUp} className="min-w-0 text-center md:text-left md:col-start-1">
+            <motion.div variants={fadeUp} className="mb-5 sm:mb-6 flex justify-center md:justify-start">
               <SectionLabel icon={Zap}>AI Growth Engine</SectionLabel>
             </motion.div>
             <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl font-black text-white mb-5 sm:mb-6 tracking-tight leading-tight">
               IA que trabalha<br className="sm:hidden" /> enquanto você atende
             </motion.h2>
-            <motion.p variants={fadeUp} className="text-white/60 mb-7 sm:mb-8 leading-relaxed text-base sm:text-base">
-              O sistema analisa automaticamente seus clientes, identifica quem está sumindo, detecta padrões de frequência e gera mensagens prontas para você enviar no WhatsApp e trazer de volta.
+            <motion.p variants={fadeUp} className="text-white/60 mb-4 leading-relaxed text-base sm:text-lg">
+              No AI Growth envie mensagens automáticas para clientes sumidos. O sistema identifica quem parou de voltar, monta a mensagem e você dispara pelo WhatsApp em um clique.
+            </motion.p>
+            <motion.p variants={fadeUp} className="text-white/50 mb-7 sm:mb-8 leading-relaxed text-sm sm:text-base">
+              Estratégias para aumentar seu faturamento — clientes VIP, horários vazios e reativação com mensagem pronta.
             </motion.p>
             <motion.div variants={stagger} className="space-y-3">
-              {['Detecção de clientes inativos', 'Análise de horários fracos', 'Mensagens prontas para reativação', 'Insights de serviços com baixa demanda'].map((f) => (
-                <motion.div variants={fadeUp} key={f} className="flex items-center gap-3 text-sm font-medium text-white/85">
+              {['Detecção de clientes inativos', 'Mensagens prontas para reativação', 'Envio direto pelo WhatsApp', 'Recalcular oportunidades a qualquer momento'].map((f) => (
+                <motion.div variants={fadeUp} key={f} className="flex items-center justify-center md:justify-start gap-3 text-sm font-medium text-white/85">
                   <CheckCircle className="w-5 h-5 text-[#D4AF37] flex-shrink-0" />
                   {f}
                 </motion.div>
               ))}
             </motion.div>
-            <motion.div variants={fadeUp} className="mt-8">
+            <motion.div variants={fadeUp} className="mt-8 flex justify-center md:justify-start">
               <a href={appLink('/demo/ai-growth')} className="inline-block w-full sm:w-auto">
                 <Button className="w-full sm:w-auto bg-[#C9A227] text-black hover:bg-[#D4AF37] border-0 h-11 px-6 shadow-[0_8px_28px_-8px_rgba(212,175,55,0.5)]">
                   Ver AI Growth na Demo
@@ -644,31 +649,24 @@ export default function LandingPage() {
           </motion.div>
 
           <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
-            className="relative bg-black/70 rounded-2xl gold-ring p-5 sm:p-7 md:p-8 space-y-3 sm:space-y-4 backdrop-blur-sm"
+            variants={fadeUp}
+            className="relative w-full max-w-[168px] sm:max-w-[190px] md:max-w-[220px] mx-auto md:mx-0 md:col-start-2 md:justify-self-end"
+            whileHover={reduceMotion ? undefined : { y: -4 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 24 }}
           >
-            {[
-              { title: '12 clientes inativos detectados', sub: 'Última visita há +30 dias. Mensagem pronta para enviar.', badge: 'Reativar', color: 'bg-[#C9A227]/20 text-[#D4AF37] border border-[#C9A227]/30' },
-              { title: 'Segunda-feira às 14h está vazia', sub: 'Horário com 0 agendamentos nas últimas 4 semanas.', badge: 'Oportunidade', color: 'bg-white/10 text-white border border-white/20' },
-              { title: '8 clientes VIP sem retorno', sub: 'Clientes que gastaram +R$500 não voltam há 21 dias.', badge: 'VIP', color: 'bg-[#C9A227]/20 text-[#D4AF37] border border-[#C9A227]/30' },
-            ].map((item) => (
-              <motion.div
-                variants={fadeUp}
-                key={item.title}
-                className="flex items-start gap-3 sm:gap-4 p-3.5 sm:p-4 bg-neutral-950/80 rounded-xl border border-white/5 hover:border-[#C9A227]/30 transition-colors"
-              >
-                <div className="flex-1 min-w-0">
-                  <div className="font-semibold text-sm text-white mb-1 leading-snug">{item.title}</div>
-                  <div className="text-xs text-white/55 leading-snug">{item.sub}</div>
-                </div>
-                <span className={`text-[10px] sm:text-xs font-semibold px-2 py-1 rounded-lg whitespace-nowrap ${item.color}`}>{item.badge}</span>
-              </motion.div>
-            ))}
+            <motion.div
+              className="absolute -inset-3 rounded-[1.5rem] bg-gradient-to-br from-[#C9A227]/20 via-transparent to-[#C9A227]/5 blur-xl pointer-events-none"
+              aria-hidden
+            />
+            <img
+              src="/app-ai-growth.png"
+              alt="Tela AI Growth com recuperação de cliente VIP e envio de mensagem pelo WhatsApp"
+              className="relative block w-full h-auto object-contain drop-shadow-[0_16px_32px_-10px_rgba(0,0,0,0.7)]"
+              loading="lazy"
+              decoding="async"
+            />
           </motion.div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Pricing */}
@@ -701,7 +699,7 @@ export default function LandingPage() {
             className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 max-w-5xl mx-auto"
           >
             {[
-              { name: 'Starter', price: 'R$89,00', per: '/mês', desc: 'Para salões e barbearias que estão começando', features: ['Até 2 profissionais', 'Agenda online', 'Link público', 'Gestão de clientes', 'Agendamento automático pelo WhatsApp', 'Controle financeiro completo da barbearia'] },
+              { name: 'Starter', price: 'R$89,00', per: '/mês', desc: 'Para salões e barbearias que estão começando', features: ['Até 2 profissionais', 'Agenda online', 'Gestão de clientes', 'Agendamento automático pelo WhatsApp — 24h, 7 dias por semana', 'Controle financeiro completo da barbearia'] },
               { name: 'Pro', price: 'R$197', per: '/mês', desc: 'Para salões e barbearias em crescimento', features: ['Até 8 profissionais', 'Tudo do Starter', 'IA agenda automaticamente pelo WhatsApp', 'AI Growth Engine', 'Relatórios avançados', 'Suporte prioritário'], highlight: true },
               { name: 'Enterprise', price: 'R$397', per: '/mês', desc: 'Para redes, salões premium e barbearias', features: ['Profissionais ilimitados', 'Tudo do Pro', 'White-label total', 'Multi-unidade', 'Onboarding dedicado'] },
             ].map((p) => (
