@@ -124,12 +124,17 @@ export default function LandingPage() {
           </div>
 
           <div className="flex items-center gap-2">
+            <a href={SALONBOOK_CTA_URL} target="_blank" rel="noopener noreferrer" className="hidden sm:block">
+              <Button className="bg-[#C9A227] hover:bg-[#D4AF37] text-black font-semibold border-0 h-9 sm:h-10 px-3 sm:px-4 text-sm">
+                Teste grátis — 7 dias
+              </Button>
+            </a>
             <a href={appLink('/demo/dashboard')} className="hidden sm:block">
               <Button
                 variant="outline"
                 className="border-[#C9A227] text-[#D4AF37] hover:bg-[#C9A227] hover:text-black transition-all bg-transparent h-9 sm:h-10 px-3 sm:px-4 text-sm"
               >
-                Ver Demo
+                Ver demo
               </Button>
             </a>
             <button
@@ -146,7 +151,7 @@ export default function LandingPage() {
         {/* Mobile menu */}
         <div
           className={`md:hidden overflow-hidden border-t border-white/10 bg-black/95 backdrop-blur-xl transition-[max-height,opacity] duration-300 ${
-            menuOpen ? 'max-h-[420px] opacity-100' : 'max-h-0 opacity-0'
+            menuOpen ? 'max-h-[480px] opacity-100' : 'max-h-0 opacity-0'
           }`}
         >
           <div className="px-4 py-4 pb-[max(1rem,env(safe-area-inset-bottom))] space-y-0.5">
@@ -160,10 +165,18 @@ export default function LandingPage() {
                 {l.label}
               </a>
             ))}
-            <a href={appLink('/demo/dashboard')} onClick={() => setMenuOpen(false)} className="block pt-2">
+            <a href={SALONBOOK_CTA_URL} target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)} className="block pt-2">
               <Button className="w-full bg-[#C9A227] hover:bg-[#D4AF37] text-black font-semibold border-0 h-11">
-                Ver Demo Grátis
+                Teste grátis — 7 dias
                 <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </a>
+            <a href={appLink('/demo/dashboard')} onClick={() => setMenuOpen(false)} className="block pt-1">
+              <Button
+                variant="outline"
+                className="w-full border-[#C9A227]/60 text-[#D4AF37] hover:bg-[#C9A227]/10 bg-transparent font-semibold h-11"
+              >
+                Ver demo
               </Button>
             </a>
           </div>
