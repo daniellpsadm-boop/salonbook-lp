@@ -754,10 +754,10 @@ export default function LandingPage() {
                   7 dias grátis para testar
                 </p>
                 <div className="space-y-2.5 sm:space-y-3 mb-7 sm:mb-8">
-                  {p.features.map((f) => (
+                  {p.features.map((f, i) => (
                     <div key={f} className={`flex items-start gap-2 text-sm leading-snug ${p.highlight ? 'text-black/90' : 'text-white/75'}`}>
                       <CheckCircle className={`w-4 h-4 mt-0.5 flex-shrink-0 ${p.highlight ? 'text-black' : 'text-[#D4AF37]'}`} />
-                      <span>{f}</span>
+                      <span className={i === 0 ? 'font-bold' : undefined}>{f}</span>
                     </div>
                   ))}
                 </div>
