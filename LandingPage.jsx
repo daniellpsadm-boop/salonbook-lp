@@ -195,7 +195,6 @@ export default function LandingPage() {
             >
               <motion.div variants={fadeUp} className="mb-5 flex flex-col items-center lg:items-start gap-2">
                 <SectionLabel icon={Sparkles}>Novo · Agendamento por IA no WhatsApp</SectionLabel>
-                <SectionLabel>7 dias de teste grátis em todos os planos</SectionLabel>
               </motion.div>
 
               <motion.h1
