@@ -180,8 +180,9 @@ export default function LandingPage() {
               animate="visible"
               className="max-w-xl lg:max-w-lg xl:max-w-xl text-center lg:text-left mx-auto lg:mx-0"
             >
-              <motion.div variants={fadeUp} className="mb-5 inline-flex">
+              <motion.div variants={fadeUp} className="mb-5 flex flex-col items-center lg:items-start gap-2">
                 <SectionLabel icon={Sparkles}>Novo · Agendamento por IA no WhatsApp</SectionLabel>
+                <SectionLabel>7 dias de teste grátis em todos os planos</SectionLabel>
               </motion.div>
 
               <motion.h1
@@ -203,15 +204,27 @@ export default function LandingPage() {
               </motion.p>
 
               <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-3 lg:gap-3">
-                <a href={appLink('/demo/dashboard')} className="block">
+                <a href={SALONBOOK_CTA_URL} target="_blank" rel="noopener noreferrer" className="block">
                   <Button
                     size="lg"
                     className="bg-[#C9A227] hover:bg-white text-black px-6 py-3.5 lg:px-5 lg:py-2.5 text-base lg:text-sm xl:px-6 xl:py-3 xl:text-base font-semibold rounded-xl h-auto border-0 w-full sm:w-auto shadow-[0_8px_32px_-8px_rgba(212,175,55,0.55)] hover:shadow-[0_8px_32px_-8px_rgba(255,255,255,0.2)] transition-colors"
                   >
-                    Explorar funcionalidades
+                    Começar teste grátis — 7 dias
+                  </Button>
+                </a>
+                <a href={appLink('/demo/dashboard')} className="block">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-[#C9A227]/60 text-[#D4AF37] hover:bg-[#C9A227]/10 bg-transparent px-6 py-3.5 lg:px-5 lg:py-2.5 text-base lg:text-sm xl:px-6 xl:py-3 xl:text-base font-semibold rounded-xl h-auto w-full sm:w-auto"
+                  >
+                    Ver demo
                   </Button>
                 </a>
               </motion.div>
+              <motion.p variants={fadeUp} className="mt-3 text-xs sm:text-sm text-[#D4AF37]/90 font-medium text-center lg:text-left">
+                Teste todas as funcionalidades por 7 dias sem custo. Depois, escolha o plano ideal.
+              </motion.p>
 
               <motion.div
                 variants={fadeUp}
@@ -686,8 +699,9 @@ export default function LandingPage() {
             <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-3 sm:mb-4 tracking-tight">
               Planos simples e claros
             </motion.h2>
-            <motion.p variants={fadeUp} className="text-white/60 text-base sm:text-base px-2">
-              Comece grátis. Cresça com o plano certo para sua operação.
+            <motion.p variants={fadeUp} className="text-white/60 text-base sm:text-base px-2 max-w-2xl mx-auto">
+              <span className="text-[#D4AF37] font-semibold">7 dias de teste grátis</span> em qualquer plano.
+              Depois, pague só o valor mensal do plano escolhido.
             </motion.p>
           </motion.div>
 
@@ -723,7 +737,10 @@ export default function LandingPage() {
                   {p.price}
                   <span className={`text-base sm:text-lg font-normal ${p.highlight ? 'text-black/60' : 'text-white/45'}`}>{p.per}</span>
                 </div>
-                <div className={`text-sm mb-6 sm:mb-8 ${p.highlight ? 'text-black/70' : 'text-white/60'}`}>{p.desc}</div>
+                <div className={`text-sm mb-3 ${p.highlight ? 'text-black/70' : 'text-white/60'}`}>{p.desc}</div>
+                <p className={`text-xs font-bold uppercase tracking-wide mb-6 sm:mb-8 ${p.highlight ? 'text-black/80' : 'text-[#D4AF37]'}`}>
+                  7 dias grátis para testar
+                </p>
                 <div className="space-y-2.5 sm:space-y-3 mb-7 sm:mb-8">
                   {p.features.map((f) => (
                     <div key={f} className={`flex items-start gap-2 text-sm leading-snug ${p.highlight ? 'text-black/90' : 'text-white/75'}`}>
@@ -740,7 +757,7 @@ export default function LandingPage() {
                         : 'bg-[#C9A227] text-black hover:bg-[#D4AF37]'
                     }`}
                   >
-                    Começar agora
+                    Começar teste grátis
                   </Button>
                 </a>
               </motion.div>
@@ -765,16 +782,25 @@ export default function LandingPage() {
             Pronto para transformar<br className="sm:hidden" /> seu salão ou barbearia?
           </motion.h2>
           <motion.p variants={fadeUp} className="text-black/75 text-base sm:text-lg mb-8 sm:mb-10 px-2">
-            Explore a demo completa e veja como o BarbFlow funciona na prática.
+            Comece com <span className="font-bold text-black">7 dias de teste grátis</span> ou explore a demo completa na prática.
           </motion.p>
-          <motion.div variants={fadeUp}>
-            <a href={appLink('/demo/dashboard')} className="inline-block w-full sm:w-auto">
+          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a href={SALONBOOK_CTA_URL} target="_blank" rel="noopener noreferrer" className="inline-block w-full sm:w-auto">
               <Button
                 size="lg"
                 className="w-full sm:w-auto bg-black text-white hover:bg-black/90 px-8 sm:px-10 py-3.5 sm:py-4 text-base font-bold h-auto border-0 rounded-xl shadow-[0_18px_44px_-12px_rgba(0,0,0,0.55)]"
               >
-                Ver Demo Gratuita
+                Começar teste grátis — 7 dias
                 <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </a>
+            <a href={appLink('/demo/dashboard')} className="inline-block w-full sm:w-auto">
+              <Button
+                size="lg"
+                variant="outline"
+                className="w-full sm:w-auto border-black/30 text-black hover:bg-black/10 bg-transparent px-8 sm:px-10 py-3.5 sm:py-4 text-base font-bold h-auto rounded-xl"
+              >
+                Ver demo
               </Button>
             </a>
           </motion.div>
