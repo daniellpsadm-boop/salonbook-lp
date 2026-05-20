@@ -41,7 +41,7 @@ const appScreens = [
 ];
 import { motion, useReducedMotion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { appLink, SALONBOOK_CTA_URL } from './src/app-links.js';
+import { appLink, onboardingCheckoutUrl, SALONBOOK_CTA_URL } from './src/app-links.js';
 
 function SectionLabel({ icon: Icon, children }) {
   return (
@@ -725,9 +725,9 @@ export default function LandingPage() {
             className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 max-w-5xl mx-auto"
           >
             {[
-              { name: 'Starter', price: 'R$89,00', per: '/mês', desc: 'Para salões e barbearias que estão começando', features: ['Até 2 profissionais', 'Agenda online', 'Gestão de clientes', 'Agendamento automático pelo WhatsApp — 24h, 7 dias por semana', 'Controle financeiro completo da barbearia', 'AI Growth: contato automático com clientes sumidos'] },
-              { name: 'Pro', price: 'R$189,00', per: '/mês', desc: 'Para salões e barbearias em crescimento', features: ['Até 8 profissionais', 'Agenda online', 'Gestão de clientes', 'Agendamento automático pelo WhatsApp — 24h, 7 dias por semana', 'Controle financeiro completo da barbearia', 'AI Growth: contato automático com clientes sumidos'], highlight: true },
-              { name: 'Enterprise', price: 'R$389,00', per: '/mês', desc: 'Para redes, salões premium e barbearias', features: ['Profissionais ilimitados', 'Agenda online', 'Gestão de clientes', 'Agendamento automático pelo WhatsApp — 24h, 7 dias por semana', 'Controle financeiro completo da barbearia', 'AI Growth: contato automático com clientes sumidos'] },
+              { slug: 'starter', name: 'Starter', price: 'R$89,00', per: '/mês', desc: 'Para salões e barbearias que estão começando', features: ['Até 2 profissionais', 'Agenda online', 'Gestão de clientes', 'Agendamento automático pelo WhatsApp — 24h, 7 dias por semana', 'Controle financeiro completo da barbearia', 'AI Growth: contato automático com clientes sumidos'] },
+              { slug: 'pro', name: 'Pro', price: 'R$189,00', per: '/mês', desc: 'Para salões e barbearias em crescimento', features: ['Até 8 profissionais', 'Agenda online', 'Gestão de clientes', 'Agendamento automático pelo WhatsApp — 24h, 7 dias por semana', 'Controle financeiro completo da barbearia', 'AI Growth: contato automático com clientes sumidos'], highlight: true },
+              { slug: 'enterprise', name: 'Enterprise', price: 'R$389,00', per: '/mês', desc: 'Para redes, salões premium e barbearias', features: ['Profissionais ilimitados', 'Agenda online', 'Gestão de clientes', 'Agendamento automático pelo WhatsApp — 24h, 7 dias por semana', 'Controle financeiro completo da barbearia', 'AI Growth: contato automático com clientes sumidos'] },
             ].map((p) => (
               <motion.div
                 key={p.name}
@@ -761,7 +761,7 @@ export default function LandingPage() {
                     </div>
                   ))}
                 </div>
-                <a href={SALONBOOK_CTA_URL} target="_blank" rel="noopener noreferrer" className="block">
+                <a href={onboardingCheckoutUrl(p.slug)} target="_blank" rel="noopener noreferrer" className="block">
                   <Button
                     className={`w-full h-11 border-0 font-semibold ${
                       p.highlight
