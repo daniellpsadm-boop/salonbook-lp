@@ -41,7 +41,7 @@ const appScreens = [
 ];
 import { motion, useReducedMotion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { appLink, onboardingCheckoutUrl } from './src/app-links.js';
+import { appLink, stripeCheckoutUrl } from './src/app-links.js';
 
 function SectionLabel({ icon: Icon, children }) {
   return (
@@ -124,7 +124,7 @@ export default function LandingPage() {
           </div>
 
           <div className="flex items-center gap-2">
-            <a href={onboardingCheckoutUrl('pro')} target="_blank" rel="noopener noreferrer" className="hidden sm:block">
+            <a href={stripeCheckoutUrl('pro')} rel="noopener noreferrer" className="hidden sm:block">
               <Button className="bg-[#C9A227] hover:bg-[#D4AF37] text-black font-semibold border-0 h-9 sm:h-10 px-3 sm:px-4 text-sm">
                 Teste grátis — 7 dias
               </Button>
@@ -165,7 +165,7 @@ export default function LandingPage() {
                 {l.label}
               </a>
             ))}
-            <a href={onboardingCheckoutUrl('pro')} target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)} className="block pt-2">
+            <a href={stripeCheckoutUrl('pro')} rel="noopener noreferrer" onClick={() => setMenuOpen(false)} className="block pt-2">
               <Button className="w-full bg-[#C9A227] hover:bg-[#D4AF37] text-black font-semibold border-0 h-11">
                 Teste grátis — 7 dias
                 <ArrowRight className="w-4 h-4 ml-2" />
@@ -216,7 +216,7 @@ export default function LandingPage() {
               </motion.p>
 
               <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-3 lg:gap-3">
-                <a href={onboardingCheckoutUrl('pro')} target="_blank" rel="noopener noreferrer" className="block">
+                <a href={stripeCheckoutUrl('pro')} rel="noopener noreferrer" className="block">
                   <Button
                     size="lg"
                     className="bg-[#C9A227] hover:bg-white text-black px-6 py-3.5 lg:px-5 lg:py-2.5 text-base lg:text-sm xl:px-6 xl:py-3 xl:text-base font-semibold rounded-xl h-auto border-0 w-full sm:w-auto shadow-[0_8px_32px_-8px_rgba(212,175,55,0.55)] hover:shadow-[0_8px_32px_-8px_rgba(255,255,255,0.2)] transition-colors"
@@ -797,7 +797,7 @@ export default function LandingPage() {
             Comece com <span className="font-bold text-black">7 dias de teste grátis</span> ou explore a demo completa na prática.
           </motion.p>
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <a href={onboardingCheckoutUrl('pro')} target="_blank" rel="noopener noreferrer" className="inline-block w-full sm:w-auto">
+            <a href={stripeCheckoutUrl('pro')} rel="noopener noreferrer" className="inline-block w-full sm:w-auto">
               <Button
                 size="lg"
                 className="w-full sm:w-auto bg-black text-white hover:bg-black/90 px-8 sm:px-10 py-3.5 sm:py-4 text-base font-bold h-auto border-0 rounded-xl shadow-[0_18px_44px_-12px_rgba(0,0,0,0.55)]"
