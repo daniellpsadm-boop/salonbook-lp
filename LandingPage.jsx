@@ -761,7 +761,7 @@ export default function LandingPage() {
                     </div>
                   ))}
                 </div>
-                <a href={onboardingCheckoutUrl(p.slug)} target="_blank" rel="noopener noreferrer" className="block">
+                <a href={stripeCheckoutUrl(p.slug)} rel="noopener noreferrer" className="block">
                   <Button
                     className={`w-full h-11 border-0 font-semibold ${
                       p.highlight
