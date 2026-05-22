@@ -726,8 +726,8 @@ export default function LandingPage() {
           >
             {[
               { slug: 'starter', name: 'Starter', price: 'R$89,00', per: '/mês', desc: 'Para salões e barbearias que estão começando', features: ['Até 2 profissionais', 'Agenda online', 'Gestão de clientes', 'Agendamento automático pelo WhatsApp — 24h, 7 dias por semana', 'Controle financeiro completo da barbearia', 'AI Growth: contato automático com clientes sumidos'] },
-              { slug: 'pro', name: 'Pro', price: 'R$189,00', per: '/mês', desc: 'Para salões e barbearias em crescimento', features: ['Até 8 profissionais', 'Agenda online', 'Gestão de clientes', 'Agendamento automático pelo WhatsApp — 24h, 7 dias por semana', 'Controle financeiro completo da barbearia', 'AI Growth: contato automático com clientes sumidos'], highlight: true },
-              { slug: 'enterprise', name: 'Enterprise', price: 'R$389,00', per: '/mês', desc: 'Para redes, salões premium e barbearias', features: ['Profissionais ilimitados', 'Agenda online', 'Gestão de clientes', 'Agendamento automático pelo WhatsApp — 24h, 7 dias por semana', 'Controle financeiro completo da barbearia', 'AI Growth: contato automático com clientes sumidos'] },
+              { slug: 'pro', name: 'Pro', price: 'R$189,00', per: '/mês', desc: 'Para salões e barbearias em crescimento', features: ['Até 8 profissionais', 'Agenda online', 'Gestão de clientes', 'Agendamento automático pelo WhatsApp — 24h, 7 dias por semana', 'Controle financeiro completo da barbearia', 'AI Growth: contato automático com clientes sumidos', 'Em breve: gestão de clube de assinaturas'], highlight: true },
+              { slug: 'enterprise', name: 'Enterprise', price: 'R$389,00', per: '/mês', desc: 'Para redes, salões premium e barbearias', features: ['Profissionais ilimitados', 'Agenda online', 'Gestão de clientes', 'Agendamento automático pelo WhatsApp — 24h, 7 dias por semana', 'Controle financeiro completo da barbearia', 'AI Growth: contato automático com clientes sumidos', 'Em breve: gestão de clube de assinaturas'] },
             ].map((p) => (
               <motion.div
                 key={p.name}
@@ -757,7 +757,7 @@ export default function LandingPage() {
                   {p.features.map((f, i) => (
                     <div key={f} className={`flex items-start gap-2 text-sm leading-snug ${p.highlight ? 'text-black/90' : 'text-white/75'}`}>
                       <CheckCircle className={`w-4 h-4 mt-0.5 flex-shrink-0 ${p.highlight ? 'text-black' : 'text-[#D4AF37]'}`} />
-                      <span className={i === 0 ? 'font-bold' : undefined}>{f}</span>
+                      <span className={i === 0 || f.startsWith('Em breve:') ? 'font-bold' : undefined}>{f}</span>
                     </div>
                   ))}
                 </div>
