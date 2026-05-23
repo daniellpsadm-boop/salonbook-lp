@@ -34,16 +34,9 @@ export function onboardingCheckoutUrl(planSlug) {
   return appLink(`/onboarding?plan=${plan}`);
 }
 
-/**
- * CTA da LP: onboarding autenticado → API cria Checkout Session (vincula usuário + trial).
- * Payment Links diretos (buy.stripe.com) ficam só como fallback via env, se definidos.
- */
+/** Checkout Stripe direto na LP (Payment Link). Após pagamento → app/onboarding?checkout=success. */
 export function stripeCheckoutUrl(planSlug) {
   const slug = String(planSlug || '').toLowerCase();
   const plan = PLAN_SLUGS.includes(slug) ? slug : 'pro';
-  const fromEnv = stripeCheckoutFromEnv(plan);
-  if (import.meta.env.VITE_STRIPE_USE_PAYMENT_LINKS === 'true' && fromEnv) {
-    return fromEnv;
-  }
-  return onboardingCheckoutUrl(plan);
+  return stripeCheckoutFromEnv(plan) || onboardingCheckoutUrl(plan);
 }
