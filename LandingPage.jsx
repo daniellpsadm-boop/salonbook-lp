@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import {
   Calendar, Users, TrendingUp, ArrowRight, CheckCircle, Zap, BarChart2,
   MessagesSquare, MessageCircle, Scissors, BellRing, Home, DollarSign,
-  Sparkles, Menu, X, Star,
+  Sparkles, Menu, X, Star, Crown, RefreshCw, BadgeCheck, Wallet, TrendingDown,
 } from 'lucide-react';
 
 const appScreens = [
@@ -93,6 +93,7 @@ export default function LandingPage() {
     { href: '#como-funciona', label: 'Como Funciona' },
     { href: '#agendamento-whatsapp', label: 'Agendamento' },
     { href: '#ai-growth', label: 'AI Growth' },
+    { href: '#clube-assinaturas', label: 'Clube' },
     { href: '#planos', label: 'Planos' },
   ];
 
@@ -692,6 +693,155 @@ export default function LandingPage() {
             />
           </motion.div>
         </motion.div>
+      </section>
+
+      {/* Clube de Assinaturas */}
+      <section id="clube-assinaturas" className="relative py-10 sm:py-16 px-4 sm:px-6 bg-neutral-950 border-t border-white/10 overflow-hidden">
+        <div className="absolute inset-0 -z-0 pointer-events-none">
+          <div className="absolute top-0 left-0 w-[600px] h-[600px] gold-orb opacity-20" />
+          <div className="absolute bottom-0 right-0 w-[400px] h-[400px] gold-orb opacity-15" />
+        </div>
+        <div className="relative max-w-7xl mx-auto">
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-60px' }}
+            className="text-center mb-10 sm:mb-14"
+          >
+            <motion.div variants={fadeUp} className="mb-4 inline-flex">
+              <SectionLabel icon={Crown}>Clube de Assinaturas</SectionLabel>
+            </motion.div>
+            <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-3 sm:mb-4 tracking-tight leading-tight">
+              Receita recorrente todo mês.<br className="sm:hidden" />{' '}
+              <span className="text-gradient-gold">Clientes mais fiéis.</span>
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-base sm:text-lg text-white/60 max-w-2xl mx-auto leading-relaxed px-2">
+              Crie planos de assinatura para seus clientes — eles pagam um valor mensal fixo e têm direito a uma cota de serviços. Você garante receita previsível, eles economizam e voltam com mais frequência.
+            </motion.p>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 items-center">
+            {/* Benefits */}
+            <motion.div
+              variants={stagger}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-40px' }}
+              className="space-y-4"
+            >
+              {[
+                {
+                  icon: RefreshCw,
+                  title: 'Receita previsível todo mês',
+                  desc: 'Assinantes pagam mensalmente, independente de agendamento. Seu faturamento base deixa de depender só do movimento diário.',
+                },
+                {
+                  icon: BadgeCheck,
+                  title: 'Gestão automática de cotas e saldos',
+                  desc: 'O sistema controla automaticamente quantos serviços cada assinante ainda tem disponíveis no mês — sem planilha, sem anotação manual.',
+                },
+                {
+                  icon: Crown,
+                  title: 'Planos customizáveis para cada perfil',
+                  desc: 'Monte planos com diferentes serviços, frequências e valores: corte semanal, barba + corte quinzenal, combo premium mensal.',
+                },
+                {
+                  icon: Wallet,
+                  title: 'Cliente economiza, barbearia retém',
+                  desc: 'O assinante paga menos por serviço e tem prioridade no agendamento — vantagem real que faz ele não querer cancelar.',
+                },
+                {
+                  icon: TrendingDown,
+                  title: 'Redução drástica de churn',
+                  desc: 'Quem assina cria um hábito. A taxa de abandono de assinantes é até 3× menor que a de clientes avulsos.',
+                },
+              ].map((item) => (
+                <motion.div
+                  key={item.title}
+                  variants={fadeUp}
+                  className="flex gap-4 p-4 sm:p-5 rounded-2xl border border-white/8 bg-black/40 hover:border-[#C9A227]/35 hover:bg-black/60 transition-colors group"
+                >
+                  <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-gradient-to-br from-[#C9A227]/25 to-[#C9A227]/5 border border-[#C9A227]/30 flex items-center justify-center text-[#D4AF37] group-hover:from-[#C9A227]/35 transition-colors">
+                    <item.icon className="w-5 h-5" />
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="font-bold text-white text-[15px] sm:text-base mb-1">{item.title}</h3>
+                    <p className="text-[13px] sm:text-sm text-white/55 leading-relaxed">{item.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* Subscription card mockup */}
+            <motion.div
+              variants={stagger}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-40px' }}
+              className="flex flex-col gap-4 items-center lg:items-end"
+            >
+              {/* Header card */}
+              <motion.div
+                variants={fadeUp}
+                className="w-full max-w-sm rounded-3xl overflow-hidden border border-[#C9A227]/30 shadow-[0_24px_64px_-16px_rgba(201,162,39,0.4)]"
+              >
+                <div className="bg-gradient-to-br from-[#D4AF37] to-[#C9A227] px-6 py-5">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-xs font-bold uppercase tracking-widest text-black/60">Plano Assinante</span>
+                    <Crown className="w-5 h-5 text-black/50" />
+                  </div>
+                  <div className="text-black font-black text-3xl mb-0.5">Corte + Barba</div>
+                  <div className="text-black/70 text-sm font-medium">2× por mês · Qualquer profissional</div>
+                  <div className="mt-4 text-black font-black text-4xl tracking-tight">
+                    R$119<span className="text-lg font-normal text-black/60">/mês</span>
+                  </div>
+                  <div className="mt-1 text-xs text-black/60 font-medium">Economize R$41 vs. avulso</div>
+                </div>
+                <div className="bg-black/95 px-6 py-5 space-y-3">
+                  {[
+                    { label: 'Corte Degradê', used: 1, total: 2 },
+                    { label: 'Barba Completa', used: 0, total: 2 },
+                  ].map((quota) => (
+                    <div key={quota.label}>
+                      <div className="flex items-center justify-between mb-1.5">
+                        <span className="text-xs text-white/70 font-medium">{quota.label}</span>
+                        <span className="text-xs text-[#D4AF37] font-bold">{quota.total - quota.used} restante{quota.total - quota.used !== 1 ? 's' : ''}</span>
+                      </div>
+                      <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
+                        <div
+                          className="h-full bg-gradient-to-r from-[#C9A227] to-[#D4AF37] rounded-full"
+                          style={{ width: `${((quota.total - quota.used) / quota.total) * 100}%` }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                  <div className="pt-1 flex items-center gap-2 text-[11px] text-white/40">
+                    <RefreshCw className="w-3 h-3" />
+                    Cotas renovam em 01/07 · 14 dias
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Stats mini cards */}
+              <motion.div variants={stagger} className="w-full max-w-sm grid grid-cols-2 gap-3">
+                {[
+                  { value: '+34%', label: 'Ticket médio do assinante', color: 'text-[#D4AF37]' },
+                  { value: '3×', label: 'Mais fidelidade vs. avulso', color: 'text-[#D4AF37]' },
+                ].map((stat) => (
+                  <motion.div
+                    key={stat.label}
+                    variants={fadeUp}
+                    className="bg-black/60 border border-white/10 rounded-2xl px-4 py-4 text-center hover:border-[#C9A227]/30 transition-colors"
+                  >
+                    <div className={`text-2xl font-black ${stat.color} mb-1`}>{stat.value}</div>
+                    <div className="text-[11px] text-white/50 leading-tight">{stat.label}</div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
       </section>
 
       {/* Pricing */}
