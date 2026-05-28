@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import {
   Calendar, Users, TrendingUp, ArrowRight, CheckCircle, Zap, BarChart2,
   MessagesSquare, MessageCircle, Scissors, BellRing, Home, DollarSign,
-  Sparkles, Menu, X, Star, Crown, RefreshCw, BadgeCheck, Wallet, TrendingDown,
+  Sparkles, Menu, X, Star, Crown, CreditCard, Repeat,
 } from 'lucide-react';
 
 const appScreens = [
@@ -696,10 +696,10 @@ export default function LandingPage() {
       </section>
 
       {/* Clube de Assinaturas */}
-      <section id="clube-assinaturas" className="relative py-10 sm:py-16 px-4 sm:px-6 bg-neutral-950 border-t border-white/10 overflow-hidden">
+      <section id="clube-assinaturas" className="relative py-10 sm:py-16 px-4 sm:px-6 bg-black border-t border-white/10 overflow-hidden">
         <div className="absolute inset-0 -z-0 pointer-events-none">
-          <div className="absolute top-0 left-0 w-[600px] h-[600px] gold-orb opacity-20" />
-          <div className="absolute bottom-0 right-0 w-[400px] h-[400px] gold-orb opacity-15" />
+          <div className="absolute top-1/4 -right-40 w-[500px] h-[500px] gold-orb opacity-25" />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] gold-orb opacity-15" />
         </div>
         <div className="relative max-w-7xl mx-auto">
           <motion.div
@@ -713,134 +713,130 @@ export default function LandingPage() {
               <SectionLabel icon={Crown}>Clube de Assinaturas</SectionLabel>
             </motion.div>
             <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-3 sm:mb-4 tracking-tight leading-tight">
-              Receita recorrente todo mês.<br className="sm:hidden" />{' '}
-              <span className="text-gradient-gold">Clientes mais fiéis.</span>
+              Receita previsível e<br className="sm:hidden" /> clientes mais fiéis
             </motion.h2>
             <motion.p variants={fadeUp} className="text-base sm:text-lg text-white/60 max-w-2xl mx-auto leading-relaxed px-2">
-              Crie planos de assinatura para seus clientes — eles pagam um valor mensal fixo e têm direito a uma cota de serviços. Você garante receita previsível, eles economizam e voltam com mais frequência.
+              Crie planos de assinatura mensais para seus clientes. Eles pagam um valor fixo e têm direito a uma cota de serviços — você garante faturamento todo mês e fidelização automática.
             </motion.p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 items-center">
-            {/* Benefits */}
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 items-center mb-12 sm:mb-16">
             <motion.div
               variants={stagger}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: '-40px' }}
-              className="space-y-4"
+              className="space-y-5"
             >
               {[
-                {
-                  icon: RefreshCw,
-                  title: 'Receita previsível todo mês',
-                  desc: 'Assinantes pagam mensalmente, independente de agendamento. Seu faturamento base deixa de depender só do movimento diário.',
-                },
-                {
-                  icon: BadgeCheck,
-                  title: 'Gestão automática de cotas e saldos',
-                  desc: 'O sistema controla automaticamente quantos serviços cada assinante ainda tem disponíveis no mês — sem planilha, sem anotação manual.',
-                },
-                {
-                  icon: Crown,
-                  title: 'Planos customizáveis para cada perfil',
-                  desc: 'Monte planos com diferentes serviços, frequências e valores: corte semanal, barba + corte quinzenal, combo premium mensal.',
-                },
-                {
-                  icon: Wallet,
-                  title: 'Cliente economiza, barbearia retém',
-                  desc: 'O assinante paga menos por serviço e tem prioridade no agendamento — vantagem real que faz ele não querer cancelar.',
-                },
-                {
-                  icon: TrendingDown,
-                  title: 'Redução drástica de churn',
-                  desc: 'Quem assina cria um hábito. A taxa de abandono de assinantes é até 3× menor que a de clientes avulsos.',
-                },
-              ].map((item) => (
-                <motion.div
-                  key={item.title}
-                  variants={fadeUp}
-                  className="flex gap-4 p-4 sm:p-5 rounded-2xl border border-white/8 bg-black/40 hover:border-[#C9A227]/35 hover:bg-black/60 transition-colors group"
-                >
-                  <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-gradient-to-br from-[#C9A227]/25 to-[#C9A227]/5 border border-[#C9A227]/30 flex items-center justify-center text-[#D4AF37] group-hover:from-[#C9A227]/35 transition-colors">
-                    <item.icon className="w-5 h-5" />
+                { icon: Crown, title: 'Crie planos personalizados', desc: 'Monte pacotes com nome, preço e cota de serviços — por exemplo, "4 cortes + 2 barbas por mês por R$189".' },
+                { icon: CreditCard, title: 'Cliente assina e paga mensalmente', desc: 'O cliente entra no clube com recorrência automática. Sem cobrança manual, sem esquecimento.' },
+                { icon: Repeat, title: 'Cota controlada automaticamente', desc: 'O BarbFlow rastreia cada serviço usado. Você e o cliente sabem exatamente quantos créditos ainda restam no mês.' },
+                { icon: CheckCircle, title: 'Renovação e fidelização automáticas', desc: 'A assinatura renova todo mês. O cliente já pagou — o incentivo para voltar vem embutido no clube.' },
+              ].map((step) => (
+                <motion.div key={step.title} variants={fadeUp} className="flex gap-4 items-start">
+                  <div className="flex-shrink-0 w-11 h-11 rounded-xl bg-gradient-to-br from-[#C9A227]/25 to-[#C9A227]/5 border border-[#C9A227]/30 flex items-center justify-center text-[#D4AF37]">
+                    <step.icon className="w-5 h-5" />
                   </div>
-                  <div className="min-w-0">
-                    <h3 className="font-bold text-white text-[15px] sm:text-base mb-1">{item.title}</h3>
-                    <p className="text-[13px] sm:text-sm text-white/55 leading-relaxed">{item.desc}</p>
+                  <div>
+                    <h3 className="font-bold text-white text-[15px] sm:text-base mb-1">{step.title}</h3>
+                    <p className="text-sm text-white/60 leading-relaxed">{step.desc}</p>
                   </div>
                 </motion.div>
               ))}
             </motion.div>
 
-            {/* Subscription card mockup */}
             <motion.div
-              variants={stagger}
+              variants={fadeUp}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: '-40px' }}
-              className="flex flex-col gap-4 items-center lg:items-end"
+              className="mx-auto w-full max-w-sm"
             >
-              {/* Header card */}
-              <motion.div
-                variants={fadeUp}
-                className="w-full max-w-sm rounded-3xl overflow-hidden border border-[#C9A227]/30 shadow-[0_24px_64px_-16px_rgba(201,162,39,0.4)]"
-              >
-                <div className="bg-gradient-to-br from-[#D4AF37] to-[#C9A227] px-6 py-5">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-bold uppercase tracking-widest text-black/60">Plano Assinante</span>
-                    <Crown className="w-5 h-5 text-black/50" />
+              <div className="relative rounded-2xl bg-gradient-to-br from-[#120d00] to-[#0a0a0a] border border-[#C9A227]/30 p-6 sm:p-7 shadow-[0_0_80px_-20px_rgba(201,162,39,0.45)]">
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#C9A227]/8 to-transparent pointer-events-none" />
+                <div className="relative flex items-start justify-between mb-6">
+                  <div>
+                    <div className="text-[#D4AF37] font-bold text-base sm:text-lg leading-tight">Barbearia Premium</div>
+                    <div className="text-white/45 text-xs sm:text-sm mt-0.5">Clube VIP · Plano Mensal</div>
                   </div>
-                  <div className="text-black font-black text-3xl mb-0.5">Corte + Barba</div>
-                  <div className="text-black/70 text-sm font-medium">2× por mês · Qualquer profissional</div>
-                  <div className="mt-4 text-black font-black text-4xl tracking-tight">
-                    R$119<span className="text-lg font-normal text-black/60">/mês</span>
+                  <div className="w-10 h-10 rounded-xl bg-[#C9A227]/15 border border-[#C9A227]/30 flex items-center justify-center">
+                    <Crown className="w-5 h-5 text-[#D4AF37]" />
                   </div>
-                  <div className="mt-1 text-xs text-black/60 font-medium">Economize R$41 vs. avulso</div>
                 </div>
-                <div className="bg-black/95 px-6 py-5 space-y-3">
+                <div className="relative mb-6">
+                  <div className="text-white/35 text-[10px] font-bold uppercase tracking-wider mb-1">Assinante</div>
+                  <div className="text-white font-semibold text-base">João Silva</div>
+                  <div className="text-white/40 text-xs mt-0.5">Membro desde jan/2026 · 5 meses</div>
+                </div>
+                <div className="relative space-y-4 mb-6">
+                  <div className="text-white/35 text-[10px] font-bold uppercase tracking-wider mb-2">Cota do mês</div>
                   {[
-                    { label: 'Corte Degradê', used: 1, total: 2 },
-                    { label: 'Barba Completa', used: 0, total: 2 },
-                  ].map((quota) => (
-                    <div key={quota.label}>
-                      <div className="flex items-center justify-between mb-1.5">
-                        <span className="text-xs text-white/70 font-medium">{quota.label}</span>
-                        <span className="text-xs text-[#D4AF37] font-bold">{quota.total - quota.used} restante{quota.total - quota.used !== 1 ? 's' : ''}</span>
+                    { service: 'Corte Degradê', used: 3, total: 4 },
+                    { service: 'Barba Completa', used: 1, total: 2 },
+                  ].map((q) => (
+                    <div key={q.service}>
+                      <div className="flex justify-between items-center mb-1.5">
+                        <span className="text-white/70 text-sm">{q.service}</span>
+                        <span className="text-[#D4AF37] text-sm font-bold">{q.used}/{q.total} usados</span>
                       </div>
-                      <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
+                      <div className="h-2 bg-white/10 rounded-full overflow-hidden">
                         <div
                           className="h-full bg-gradient-to-r from-[#C9A227] to-[#D4AF37] rounded-full"
-                          style={{ width: `${((quota.total - quota.used) / quota.total) * 100}%` }}
+                          style={{ width: `${(q.used / q.total) * 100}%` }}
                         />
                       </div>
                     </div>
                   ))}
-                  <div className="pt-1 flex items-center gap-2 text-[11px] text-white/40">
-                    <RefreshCw className="w-3 h-3" />
-                    Cotas renovam em 01/07 · 14 dias
+                </div>
+                <div className="relative pt-5 border-t border-white/10 flex items-center justify-between">
+                  <div>
+                    <div className="text-white/35 text-[10px] font-bold uppercase tracking-wider">Valor mensal</div>
+                    <div className="text-white font-bold text-xl mt-0.5">R$189<span className="text-white/40 text-sm font-normal">/mês</span></div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-white/35 text-[10px] font-bold uppercase tracking-wider">Próxima renovação</div>
+                    <div className="text-white/70 text-sm mt-0.5 font-medium">01/06/2026</div>
                   </div>
                 </div>
-              </motion.div>
-
-              {/* Stats mini cards */}
-              <motion.div variants={stagger} className="w-full max-w-sm grid grid-cols-2 gap-3">
-                {[
-                  { value: '+34%', label: 'Ticket médio do assinante', color: 'text-[#D4AF37]' },
-                  { value: '3×', label: 'Mais fidelidade vs. avulso', color: 'text-[#D4AF37]' },
-                ].map((stat) => (
-                  <motion.div
-                    key={stat.label}
-                    variants={fadeUp}
-                    className="bg-black/60 border border-white/10 rounded-2xl px-4 py-4 text-center hover:border-[#C9A227]/30 transition-colors"
-                  >
-                    <div className={`text-2xl font-black ${stat.color} mb-1`}>{stat.value}</div>
-                    <div className="text-[11px] text-white/50 leading-tight">{stat.label}</div>
-                  </motion.div>
-                ))}
-              </motion.div>
+              </div>
+              <p className="text-center text-[11px] text-white/35 mt-3 px-2 leading-snug">
+                Exemplo de cartão de assinante — controle de cotas e renovação automáticos no BarbFlow.
+              </p>
             </motion.div>
           </div>
+
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-40px' }}
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5"
+          >
+            {[
+              { icon: TrendingUp, title: 'Receita mensal garantida', desc: 'Você sabe quanto vai faturar antes do mês começar. Sem depender só de agendamentos avulsos.' },
+              { icon: Users, title: 'Fidelização automática', desc: 'Assinante já pagou — o incentivo para voltar todo mês está embutido no clube.' },
+              { icon: BarChart2, title: 'Ticket médio mais alto', desc: 'Assinantes visitam mais e gastam mais. Crescimento orgânico sem esforço extra de marketing.' },
+              { icon: CheckCircle, title: 'Controle de cotas no app', desc: 'O BarbFlow rastreia automaticamente cada serviço usado. Sem planilha, sem confusão.' },
+              { icon: Star, title: 'Experiência VIP para o cliente', desc: 'Assinantes se sentem valorizados e tratados como clientes premium — e recomendam mais.' },
+              { icon: Repeat, title: 'Renovação recorrente automática', desc: 'Cobrança e renovação acontecem sozinhas todo mês. Menos trabalho operacional, mais previsibilidade.' },
+            ].map((b) => (
+              <motion.div
+                key={b.title}
+                variants={fadeUp}
+                className="group relative bg-neutral-950/70 rounded-2xl gold-ring p-5 sm:p-6 transition-all sm:hover:-translate-y-1 sm:hover:shadow-[0_20px_60px_-20px_rgba(201,162,39,0.35)]"
+              >
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#C9A227]/0 via-transparent to-[#C9A227]/0 group-hover:from-[#C9A227]/8 group-hover:to-transparent transition-opacity pointer-events-none" />
+                <div className="relative">
+                  <div className="mb-3 sm:mb-4 rounded-xl w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center bg-gradient-to-br from-[#C9A227]/25 to-[#C9A227]/5 border border-[#C9A227]/30 text-[#D4AF37]">
+                    <b.icon className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-[15px] sm:text-base font-bold text-white mb-1.5">{b.title}</h3>
+                  <p className="text-sm text-white/55 leading-relaxed">{b.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
@@ -876,8 +872,8 @@ export default function LandingPage() {
           >
             {[
               { slug: 'starter', name: 'Starter', price: 'R$89,00', per: '/mês', desc: 'Para salões e barbearias que estão começando', features: ['Até 2 profissionais', 'Agenda online', 'Gestão de clientes', 'Agendamento automático pelo WhatsApp — 24h, 7 dias por semana', 'Controle financeiro completo da barbearia', 'AI Growth: contato automático com clientes sumidos'] },
-              { slug: 'pro', name: 'Pro', price: 'R$189,00', per: '/mês', desc: 'Para salões e barbearias em crescimento', features: ['Até 8 profissionais', 'Agenda online', 'Gestão de clientes', 'Agendamento automático pelo WhatsApp — 24h, 7 dias por semana', 'Controle financeiro completo da barbearia', 'AI Growth: contato automático com clientes sumidos', 'Em breve: gestão de clube de assinaturas'], highlight: true },
-              { slug: 'enterprise', name: 'Enterprise', price: 'R$389,00', per: '/mês', desc: 'Para redes, salões premium e barbearias', features: ['Profissionais ilimitados', 'Agenda online', 'Gestão de clientes', 'Agendamento automático pelo WhatsApp — 24h, 7 dias por semana', 'Controle financeiro completo da barbearia', 'AI Growth: contato automático com clientes sumidos', 'Em breve: gestão de clube de assinaturas'] },
+              { slug: 'pro', name: 'Pro', price: 'R$189,00', per: '/mês', desc: 'Para salões e barbearias em crescimento', features: ['Até 8 profissionais', 'Agenda online', 'Gestão de clientes', 'Agendamento automático pelo WhatsApp — 24h, 7 dias por semana', 'Controle financeiro completo da barbearia', 'AI Growth: contato automático com clientes sumidos', 'Clube de Assinaturas: cotas e renovação automáticos'], highlight: true },
+              { slug: 'enterprise', name: 'Enterprise', price: 'R$389,00', per: '/mês', desc: 'Para redes, salões premium e barbearias', features: ['Profissionais ilimitados', 'Agenda online', 'Gestão de clientes', 'Agendamento automático pelo WhatsApp — 24h, 7 dias por semana', 'Controle financeiro completo da barbearia', 'AI Growth: contato automático com clientes sumidos', 'Clube de Assinaturas: cotas e renovação automáticos'] },
             ].map((p) => (
               <motion.div
                 key={p.name}
@@ -907,7 +903,7 @@ export default function LandingPage() {
                   {p.features.map((f, i) => (
                     <div key={f} className={`flex items-start gap-2 text-sm leading-snug ${p.highlight ? 'text-black/90' : 'text-white/75'}`}>
                       <CheckCircle className={`w-4 h-4 mt-0.5 flex-shrink-0 ${p.highlight ? 'text-black' : 'text-[#D4AF37]'}`} />
-                      <span className={i === 0 || f.startsWith('Em breve:') ? 'font-bold' : undefined}>{f}</span>
+                      <span className={i === 0 || f.startsWith('Clube de Assinaturas:') ? 'font-bold' : undefined}>{f}</span>
                     </div>
                   ))}
                 </div>
