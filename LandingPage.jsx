@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import {
   Calendar, Users, TrendingUp, ArrowRight, CheckCircle, Zap, BarChart2,
   MessagesSquare, MessageCircle, Scissors, BellRing, Home, DollarSign,
-  Sparkles, Menu, X, Star, Crown, CreditCard, Repeat,
+  Sparkles, Menu, X, Star, Crown, CreditCard, Repeat, ShieldCheck,
 } from 'lucide-react';
 
 const appScreens = [
@@ -716,7 +716,7 @@ export default function LandingPage() {
               Receita previsível e<br className="sm:hidden" /> clientes mais fiéis
             </motion.h2>
             <motion.p variants={fadeUp} className="text-base sm:text-lg text-white/60 max-w-2xl mx-auto leading-relaxed px-2">
-              Crie planos de assinatura mensais para seus clientes. Eles pagam um valor fixo e têm direito a uma cota de serviços — você garante faturamento todo mês e fidelização automática.
+              O BarbFlow tem Clube de Assinaturas integrado ao app: monte planos mensais com cota de serviços, seus clientes assinam e pagam direto pelo Stripe — você garante receita recorrente e fidelização sem cobrança manual.
             </motion.p>
           </motion.div>
 
@@ -730,9 +730,9 @@ export default function LandingPage() {
             >
               {[
                 { icon: Crown, title: 'Crie planos personalizados', desc: 'Monte pacotes com nome, preço e cota de serviços — por exemplo, "4 cortes + 2 barbas por mês por R$189".' },
-                { icon: CreditCard, title: 'Cliente assina e paga mensalmente', desc: 'O cliente entra no clube com recorrência automática. Sem cobrança manual, sem esquecimento.' },
+                { icon: CreditCard, title: 'Assinante paga direto pelo Stripe', desc: 'No app, o cliente conclui a assinatura e o pagamento mensal no checkout Stripe — cartão seguro, cobrança recorrente e confirmação automática.' },
                 { icon: Repeat, title: 'Cota controlada automaticamente', desc: 'O BarbFlow rastreia cada serviço usado. Você e o cliente sabem exatamente quantos créditos ainda restam no mês.' },
-                { icon: CheckCircle, title: 'Renovação e fidelização automáticas', desc: 'A assinatura renova todo mês. O cliente já pagou — o incentivo para voltar vem embutido no clube.' },
+                { icon: CheckCircle, title: 'Renovação e fidelização automáticas', desc: 'A Stripe renova todo mês; o BarbFlow atualiza o status. O cliente já pagou — o incentivo para voltar vem embutido no clube.' },
               ].map((step) => (
                 <motion.div key={step.title} variants={fadeUp} className="flex gap-4 items-start">
                   <div className="flex-shrink-0 w-11 h-11 rounded-xl bg-gradient-to-br from-[#C9A227]/25 to-[#C9A227]/5 border border-[#C9A227]/30 flex items-center justify-center text-[#D4AF37]">
@@ -799,12 +799,54 @@ export default function LandingPage() {
                     <div className="text-white/70 text-sm mt-0.5 font-medium">01/06/2026</div>
                   </div>
                 </div>
+                <div className="relative mt-4 flex items-center gap-2.5 rounded-xl bg-[#635BFF]/10 border border-[#635BFF]/25 px-3.5 py-2.5">
+                  <ShieldCheck className="w-4 h-4 text-[#a5a0ff] shrink-0" aria-hidden />
+                  <div className="min-w-0">
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-[#c4c0ff]">Pagamento</div>
+                    <div className="text-white/80 text-xs font-medium truncate">Recorrente via Stripe · cartão confirmado</div>
+                  </div>
+                </div>
               </div>
               <p className="text-center text-[11px] text-white/35 mt-3 px-2 leading-snug">
-                Exemplo de cartão de assinante — controle de cotas e renovação automáticos no BarbFlow.
+                Exemplo de assinante no app — cotas no BarbFlow e cobrança mensal direto pelo Stripe.
               </p>
             </motion.div>
           </div>
+
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-40px' }}
+            className="mb-10 sm:mb-14 rounded-2xl border border-[#635BFF]/30 bg-gradient-to-br from-[#635BFF]/12 via-neutral-950/90 to-black p-6 sm:p-8"
+          >
+            <div className="flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-8">
+              <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-[#635BFF]/20 border border-[#635BFF]/35 flex items-center justify-center">
+                <ShieldCheck className="w-7 h-7 text-[#c4c0ff]" aria-hidden />
+              </div>
+              <div className="flex-1 min-w-0">
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-2">
+                  Pagamento do assinante direto pelo Stripe
+                </h3>
+                <p className="text-sm sm:text-base text-white/60 leading-relaxed mb-4">
+                  Seus clientes entram no clube e pagam a mensalidade no checkout Stripe integrado ao BarbFlow — sem você cobrar no balcão, sem planilha e sem perder renovação por esquecimento.
+                </p>
+                <ul className="grid sm:grid-cols-2 gap-2.5 sm:gap-3 text-sm text-white/70">
+                  {[
+                    'Checkout seguro com cartão de crédito',
+                    'Cobrança recorrente automática todo mês',
+                    'Confirmação e status sincronizados no app',
+                    'Menos inadimplência e zero trabalho manual de cobrança',
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" aria-hidden />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </motion.div>
 
           <motion.div
             variants={stagger}
@@ -817,7 +859,7 @@ export default function LandingPage() {
               { icon: TrendingUp, title: 'Receita mensal garantida', desc: 'Você sabe quanto vai faturar antes do mês começar. Sem depender só de agendamentos avulsos.' },
               { icon: Users, title: 'Fidelização automática', desc: 'Assinante já pagou — o incentivo para voltar todo mês está embutido no clube.' },
               { icon: BarChart2, title: 'Ticket médio mais alto', desc: 'Assinantes visitam mais e gastam mais. Crescimento orgânico sem esforço extra de marketing.' },
-              { icon: CheckCircle, title: 'Controle de cotas no app', desc: 'O BarbFlow rastreia automaticamente cada serviço usado. Sem planilha, sem confusão.' },
+              { icon: ShieldCheck, title: 'Stripe cuida do pagamento', desc: 'O assinante paga direto na Stripe; o BarbFlow reflete assinatura ativa, cotas e renovações no painel.' },
               { icon: Star, title: 'Experiência VIP para o cliente', desc: 'Assinantes se sentem valorizados e tratados como clientes premium — e recomendam mais.' },
               { icon: Repeat, title: 'Renovação recorrente automática', desc: 'Cobrança e renovação acontecem sozinhas todo mês. Menos trabalho operacional, mais previsibilidade.' },
             ].map((b) => (
