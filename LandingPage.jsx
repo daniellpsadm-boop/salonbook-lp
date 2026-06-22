@@ -338,7 +338,7 @@ export default function LandingPage() {
               { icon: Users, title: 'Gestão de Clientes', desc: 'Histórico completo, frequência, ticket médio, tags automáticas e segmentação por comportamento.' },
               { icon: TrendingUp, title: 'Financeiro Simplificado', desc: 'Faturamento, ticket médio, entradas e saídas. Visão clara do dinheiro da operação.' },
               { icon: BarChart2, title: 'Relatórios Completos', desc: 'Serviços mais vendidos, profissionais mais ativos, horários de pico e tendências.' },
-              { icon: Zap, title: 'Mineração de Leads', desc: 'IA mapeia automaticamente leads e clientes inativos — sem busca manual. Gera oportunidades prontas para reativação e captação com um clique.' },
+              { icon: Zap, title: 'AI Growth Engine', desc: 'IA detecta clientes inativos, horários fracos e gera mensagens prontas para reativação.' },
             ].map((f) => (
               <motion.div
                 key={f.title}
@@ -657,7 +657,7 @@ export default function LandingPage() {
               Estratégias para aumentar seu faturamento — clientes VIP, horários vazios e reativação com mensagem pronta.
             </motion.p>
             <motion.div variants={stagger} className="space-y-3">
-              {['Mineração automática de leads', 'Detecção de clientes inativos', 'Mensagens prontas para reativação', 'Envio direto pelo WhatsApp'].map((f) => (
+              {['Detecção de clientes inativos', 'Mensagens prontas para reativação', 'Envio direto pelo WhatsApp', 'Recalcular oportunidades a qualquer momento'].map((f) => (
                 <motion.div variants={fadeUp} key={f} className="flex items-center justify-center md:justify-start gap-3 text-sm font-medium text-white/85">
                   <CheckCircle className="w-5 h-5 text-[#D4AF37] flex-shrink-0" />
                   {f}
