@@ -6,3 +6,5 @@ node_modules/
 *.tmp.png
 .cursor/debug-*.log
 .git-starter-plan.patch
+dist/
+.claude/
